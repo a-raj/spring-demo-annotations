@@ -5,8 +5,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
-@Scope("prototype")
+//@Scope("prototype")
 public class TennisCoach implements Coach {
 
     // Field injection
@@ -14,6 +17,18 @@ public class TennisCoach implements Coach {
     @Qualifier("randomFortuneService")
     private FortuneService fortuneService;
 
+
+    // do startup Stuff
+    @PostConstruct
+    private void doMyStartupStuff() {
+        System.out.println("TennisCoach: inside doMyStartupStuff()");
+    }
+
+    // do my cleanup stuff
+    @PreDestroy
+    private void doMyCleanupStuff() {
+        System.out.println("TennisCoach: inside doMyCleanupStuff");
+    }
     /*
     // Constructor Injection
     @Autowired
