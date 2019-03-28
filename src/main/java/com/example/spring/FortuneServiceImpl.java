@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class FortuneServiceImpl implements FortuneService {
 
     public FortuneServiceImpl() {
-        System.out.println("FortuneServiceImpl: inside default contructor");
+        System.out.println("FortuneServiceImpl: inside default constructor");
     }
 
     @Override
